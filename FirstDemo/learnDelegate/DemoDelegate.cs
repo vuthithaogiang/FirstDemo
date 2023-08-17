@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace FirstDemo.learnDelegate
 {
-    internal class DemoDelegate
+    public class DemoDelegate
     {
+
+        public void SayHello(string msg)
+        {
+
+        }
+
+        public static void GoodBye(string msg)
+        {
+
+        }
     }
 }

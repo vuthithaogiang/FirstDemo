@@ -3,11 +3,55 @@ using System;
 using FirstDemo.demo1;
 using FirstDemo.slot5Asignment;
 using FirstDemo.slot4Asignment;
+using FirstDemo.learnDelegate;
+using FirstDemo.slot11Asignment;
 
 public class Program
+
 {
-    //slot 5
+
     public static void Main(string[] args)
+    {
+        BankAccount account = new BankAccount();
+        account.Balance = 200;
+
+        //account.BalanceChanged += AccountBalanceChanged;
+
+        account.Deposit(500);
+        Console.WriteLine($"Balance after update: {account.Balance}");
+
+        account.WithDraw(200);
+        Console.WriteLine($"Balance after update: {account.Balance}");
+
+    }
+    private static void AccountBalanceChanged(decimal newBalance)
+    {  
+        Console.WriteLine($"Balance after update: {newBalance}");
+    }
+
+    public static void Main4(string[] args)
+    {
+        VoidStringDelegate vsd = new VoidStringDelegate(DemoDelegate.GoodBye);
+        vsd("Xin chao");
+
+        VoidStringDelegate vsd2 = new VoidStringDelegate(new DemoDelegate().SayHello);
+        vsd2 += DemoDelegate.GoodBye;
+        vsd2("Hello");
+
+
+        //anonymous method
+        VoidStringDelegate vsd4 = delegate (string msg)
+        {
+            Console.WriteLine(msg);
+        };
+
+        //lamda expression
+        VoidStringDelegate vsd5 = s => Console.WriteLine(s);
+    }
+
+
+    //slot 5
+    public static void Main3(string[] args)
     {
         PhoneBook phoneBook = new PhoneBook();
 

@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace FirstDemo.learnDelegate
 {
-    internal class VoidStringDelegate
-    {
-    }
+
+    //define delegate
+    public delegate void VoidStringDelegate(string param);
+    
+    
 }
